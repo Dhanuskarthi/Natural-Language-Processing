@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caching and testing
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Model weights, checkpoints, large datasets
+models/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.onnx.data
+*.onnx_data
+data/cache/
+data/raw/
+data/banking77_cache/
+
+# Temporary and log files
+*.log
+.DS_Store
+Thumbs.db
+results/temp/
+
+# Keep empty directories with .gitkeep
+!.gitkeep
+!benchmark/results/.gitkeep
