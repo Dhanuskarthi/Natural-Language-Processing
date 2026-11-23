@@ -41,7 +41,7 @@ Natural-Language-Processing/
 ├── benchmark/               # Benchmarking suite & model registry
 │   ├── metrics.py           # Accuracy, Macro-F1, latency, throughput, memory profiler
 │   ├── run_benchmark.py     # Multi-batch / multi-length execution harness
-│   └── results/             # registry.json, trade-off charts, latency curves
+│   └── results/             # registry.json, trade-off charts, latency curves    
 ├── selector/                # Task detection, constraint extraction, and ranking
 │   ├── task_classifier.py   # NLP task detector
 │   ├── constraint_parser.py # Regex/rule engine for SLA and hardware bounds
@@ -86,3 +86,38 @@ python -c "import torch, transformers, onnxruntime; print('Environment OK!')"
 
 ### 3. CPU Fast Testing Mode
 All training scripts support the `--fast` flag, which executes on a small stratified subset with 1 epoch for quick end-to-end validation without a GPU.
+
+```bash
+# Step 1: Train teacher & baseline in fast mode
+python -m compress.finetune_teacher --fast
+
+# Step 2: Distill teacher into 4-layer student
+python -m compress.distill --fast
+
+# Step 3: Export models to ONNX FP32 and quantize to INT8
+python -m compress.export_onnx
+python -m compress.quantize --fast
+
+# Step 4: Benchmark all 9 variants and generate Pareto charts
+python -m benchmark.run_benchmark --fast
+python -m benchmark.plot_results
+
+# Step 5: Train NLP task classifier and test routing engine
+python -m selector.task_classifier
+python -m selector.route
+
+# Step 6: Launch interactive Streamlit web dashboard
+streamlit run app/streamlit_app.py
+
+# Step 7: Run automated test suite across all phases
+pytest tests/
+```
+
+### 4. Technical Report & Results
+For comprehensive experimental findings, Pareto analysis, and deployment playbooks, see:
+- 📖 [Technical Project Report](reports/report.md)
+- 📊 [Trade-off Chart (Accuracy vs. p95 Latency)](reports/tradeoff_accuracy_latency.png)
+- 📈 [Batch Scaling Latency Curves](reports/batch_scaling_latency.png)
+- ⚡ [Throughput Scaling Curves](reports/throughput_scaling.png)
+- 🗄️ [Measured Registry Database](benchmark/results/registry.json)
+
