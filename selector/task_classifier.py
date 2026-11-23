@@ -9,7 +9,7 @@ into one of five primary NLP tasks:
 5. translation
 """
 
-from typing import Dict, Any, Tuple, List
+from typing import Dict, Any, Tuple, List, Optional
 import json
 import os
 import joblib
@@ -293,7 +293,7 @@ class TaskClassifier:
         self.model_path = model_path
         self.pipeline: Pipeline = None
 
-    def train_and_evaluate(self) -> Dict[str, Any]:
+    def train_and_evaluate(self, metrics_dir: Optional[str] = "benchmark/results") -> Dict[str, Any]:
         """Trains the pipeline on TRAIN_DATA and evaluates on TEST_DATA."""
         train_texts = [x[0] for x in TRAIN_DATA]
         train_labels = [x[1] for x in TRAIN_DATA]
@@ -312,8 +312,11 @@ class TaskClassifier:
 
         report = classification_report(test_labels, test_preds, output_dict=True)
 
-        os.makedirs(os.path.dirname(self.model_path), exist_ok=True)
-        joblib.dump(self.pipeline, self.model_path)
+        if self.model_path:
+            dir_name = os.path.dirname(self.model_path)
+            if dir_name:
+                os.makedirs(dir_name, exist_ok=True)
+            joblib.dump(self.pipeline, self.model_path)
 
         metrics = {
             "train_samples": len(train_texts),
@@ -323,22 +326,24 @@ class TaskClassifier:
             "detailed_report": report
         }
 
-        results_dir = "benchmark/results"
-        os.makedirs(results_dir, exist_ok=True)
-        metrics_file = os.path.join(results_dir, "task_classifier_metrics.json")
-        with open(metrics_file, "w", encoding="utf-8") as f:
-            json.dump(metrics, f, indent=2)
+        if metrics_dir:
+            os.makedirs(metrics_dir, exist_ok=True)
+            metrics_file = os.path.join(metrics_dir, "task_classifier_metrics.json")
+            with open(metrics_file, "w", encoding="utf-8") as f:
+                json.dump(metrics, f, indent=2)
 
         print(f"[TASK CLASSIFIER] Trained on {len(train_texts)} samples across 5 tasks.")
         print(f"[TASK CLASSIFIER] Test Accuracy: {acc * 100:.2f}% (Saved to {self.model_path})")
         return metrics
 
     def load(self) -> None:
-        """Loads the trained pipeline from disk."""
+        """Loads the trained pipeline from disk without retraining."""
         if not os.path.exists(self.model_path):
-            self.train_and_evaluate()
-        else:
-            self.pipeline = joblib.load(self.model_path)
+            raise FileNotFoundError(
+                f"TaskClassifier model file not found at '{self.model_path}'. "
+                "Run selector/task_classifier.py to train and save it first."
+            )
+        self.pipeline = joblib.load(self.model_path)
 
     def predict(self, text: str) -> Tuple[str, float]:
         """Predicts the NLP task label and confidence probability for given query text."""

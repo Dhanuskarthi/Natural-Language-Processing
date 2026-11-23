@@ -9,12 +9,32 @@ from selector.pareto import is_dominated, filter_pareto_frontier
 from selector.route import select, load_registry
 
 
-def test_task_classifier_accuracy():
-    """Validates that TaskClassifier achieves high accuracy on test set."""
-    clf = TaskClassifier()
-    metrics = clf.train_and_evaluate()
+def test_task_classifier_accuracy(tmp_path):
+    """Validates that TaskClassifier achieves high accuracy on test set using a temporary path."""
+    temp_model_path = str(tmp_path / "task_classifier_test.joblib")
+    clf = TaskClassifier(model_path=temp_model_path)
+    metrics = clf.train_and_evaluate(metrics_dir=str(tmp_path))
     assert metrics["test_accuracy"] >= 0.85
     assert len(metrics["classes"]) == 5
+
+    task, conf = clf.predict("classify banking customer queries for our chatbot")
+    assert task == "intent_classification"
+    assert conf > 0.5
+    assert os.path.exists(temp_model_path)
+
+
+def test_committed_task_classifier_loads_without_retraining():
+    """Validates that the tracked selector/task_classifier.joblib loads cleanly without retraining."""
+    committed_path = "selector/task_classifier.joblib"
+    assert os.path.exists(committed_path), f"Committed model missing at {committed_path}"
+    mtime_before = os.path.getmtime(committed_path)
+
+    clf = TaskClassifier(model_path=committed_path)
+    clf.load()
+    assert clf.pipeline is not None
+
+    mtime_after = os.path.getmtime(committed_path)
+    assert mtime_before == mtime_after, "Loading the classifier should not modify the file on disk"
 
     task, conf = clf.predict("classify banking customer queries for our chatbot")
     assert task == "intent_classification"
