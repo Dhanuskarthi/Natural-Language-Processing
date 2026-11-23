@@ -1,0 +1,35 @@
+[
+  {
+    "model_name": "teacher_bert",
+    "checkpoint_dir": "models/teacher_bert",
+    "onnx_path": "models/onnx/teacher_bert_fp32.onnx",
+    "precision": "FP32",
+    "pytorch_size_mb": 417.89,
+    "onnx_size_mb": 0.11,
+    "max_output_diff": 5.1e-07,
+    "parity_pass": true,
+    "timestamp": "2026-11-23 23:08:14"
+  },
+  {
+    "model_name": "baseline_distilbert",
+    "checkpoint_dir": "models/baseline_distilbert",
+    "onnx_path": "models/onnx/baseline_distilbert_fp32.onnx",
+    "precision": "FP32",
+    "pytorch_size_mb": 255.65,
+    "onnx_size_mb": 0.06,
+    "max_output_diff": 4.2e-07,
+    "parity_pass": true,
+    "timestamp": "2026-11-23 23:08:31"
+  },
+  {
+    "model_name": "student_distilled",
+    "checkpoint_dir": "models/student_distilled",
+    "onnx_path": "models/onnx/student_distilled_fp32.onnx",
+    "precision": "FP32",
+    "pytorch_size_mb": 201.57,
+    "onnx_size_mb": 0.04,
+    "max_output_diff": 6.6e-07,
+    "parity_pass": true,
+    "timestamp": "2026-11-23 23:08:46"
+  }
+]

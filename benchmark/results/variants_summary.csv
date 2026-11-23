@@ -1,0 +1,10 @@
+model_id,display_name,family,format,precision,layers,size_mb,compression_vs_teacher,accuracy,macro_f1,test_samples
+teacher_bert_pytorch_fp32,BERT-base (PyTorch FP32),BERT-base,PyTorch,FP32,12,417.89,1.0,0.01,0.00026,100
+teacher_bert_onnx_fp32,BERT-base (ONNX FP32),BERT-base,ONNX,FP32,12,417.99,1.0,0.01,0.00026,100
+teacher_bert_onnx_int8,BERT-base (ONNX INT8),BERT-base,ONNX,INT8,12,173.16,2.41,0.01,0.00026,100
+baseline_distilbert_pytorch_fp32,DistilBERT (PyTorch FP32),DistilBERT,PyTorch,FP32,6,255.65,1.63,0.06,0.02307,100
+baseline_distilbert_onnx_fp32,DistilBERT (ONNX FP32),DistilBERT,ONNX,FP32,6,255.7,1.63,0.06,0.02307,100
+baseline_distilbert_onnx_int8,DistilBERT (ONNX INT8),DistilBERT,ONNX,INT8,6,132.36,3.16,0.02,0.00297,100
+student_distilled_pytorch_fp32,Student-4L (PyTorch FP32),Student-4L,PyTorch,FP32,4,201.57,2.07,0.06,0.02114,100
+student_distilled_onnx_fp32,Student-4L (ONNX FP32),Student-4L,ONNX,FP32,4,201.61,2.07,0.06,0.02114,100
+student_distilled_onnx_int8,Student-4L (ONNX INT8),Student-4L,ONNX,INT8,4,118.77,3.52,0.04,0.01346,100
