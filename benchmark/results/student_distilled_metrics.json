@@ -1,0 +1,14 @@
+{
+  "model_type": "student",
+  "base_model": "bert-base-uncased-4layers",
+  "checkpoint_dir": "models/student_distilled",
+  "precision": "FP32",
+  "fast_mode": true,
+  "num_layers": 4,
+  "temperature": 3.0,
+  "alpha": 0.5,
+  "test_acc": 0.06,
+  "test_macro_f1": 0.02114,
+  "improvement_over_no_distill": 0.02,
+  "timestamp": "2026-11-23 18:05:17"
+}

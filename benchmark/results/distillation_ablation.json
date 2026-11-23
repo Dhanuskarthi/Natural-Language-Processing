@@ -1,0 +1,46 @@
+[
+  {
+    "experiment": "student_no_distill",
+    "temperature": 1.0,
+    "alpha": 1.0,
+    "epochs": 1,
+    "train_time_sec": 221.35,
+    "val_acc": 0.06,
+    "test_acc": 0.04,
+    "test_macro_f1": 0.01489,
+    "test_loss": 4.32518
+  },
+  {
+    "experiment": "distill_T2_a0.5",
+    "temperature": 2.0,
+    "alpha": 0.5,
+    "epochs": 1,
+    "train_time_sec": 217.12,
+    "val_acc": 0.06,
+    "test_acc": 0.02,
+    "test_macro_f1": 0.00073,
+    "test_loss": 4.32403
+  },
+  {
+    "experiment": "distill_T3_a0.5",
+    "temperature": 3.0,
+    "alpha": 0.5,
+    "epochs": 1,
+    "train_time_sec": 228.67,
+    "val_acc": 0.04,
+    "test_acc": 0.06,
+    "test_macro_f1": 0.02114,
+    "test_loss": 4.30918
+  },
+  {
+    "experiment": "distill_T4_a0.3",
+    "temperature": 4.0,
+    "alpha": 0.3,
+    "epochs": 1,
+    "train_time_sec": 220.04,
+    "val_acc": 0.03,
+    "test_acc": 0.03,
+    "test_macro_f1": 0.00178,
+    "test_loss": 4.30825
+  }
+]
