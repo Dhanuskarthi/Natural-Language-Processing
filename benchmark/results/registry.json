@@ -1,0 +1,722 @@
+[
+  {
+    "name": "teacher_bert_pytorch_fp32",
+    "display_name": "BERT-base Teacher (PyTorch FP32)",
+    "family": "BERT-base",
+    "precision": "FP32",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.01,
+    "macro_f1": 0.00026,
+    "size_mb": 417.89,
+    "peak_mem_mb": 637.4,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 162.82,
+        "p95": 192.58,
+        "p99": 198.81
+      },
+      "bs1_seq128": {
+        "p50": 300.17,
+        "p95": 361.18,
+        "p99": 363.9
+      },
+      "bs1": {
+        "p50": 162.82,
+        "p95": 192.58,
+        "p99": 198.81
+      },
+      "bs8_seq32": {
+        "p50": 602.52,
+        "p95": 726.94,
+        "p99": 885.85
+      },
+      "bs8_seq128": {
+        "p50": 2003.67,
+        "p95": 2801.09,
+        "p99": 2926.13
+      },
+      "bs8": {
+        "p50": 602.52,
+        "p95": 726.94,
+        "p99": 885.85
+      },
+      "bs32_seq32": {
+        "p50": 2272.11,
+        "p95": 2661.64,
+        "p99": 2696.0
+      },
+      "bs32_seq128": {
+        "p50": 7880.87,
+        "p95": 9450.03,
+        "p99": 10186.66
+      },
+      "bs32": {
+        "p50": 2272.11,
+        "p95": 2661.64,
+        "p99": 2696.0
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 6.03,
+      "bs1_seq128": 3.21,
+      "bs1": 6.03,
+      "bs8_seq32": 12.91,
+      "bs8_seq128": 3.75,
+      "bs8": 12.91,
+      "bs32_seq32": 14.26,
+      "bs32_seq128": 4.08,
+      "bs32": 14.26
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "teacher_bert_onnx_fp32",
+    "display_name": "BERT-base Teacher (ONNX FP32)",
+    "family": "BERT-base",
+    "precision": "FP32",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.01,
+    "macro_f1": 0.00026,
+    "size_mb": 417.99,
+    "peak_mem_mb": 670.18,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 61.36,
+        "p95": 69.86,
+        "p99": 76.41
+      },
+      "bs1_seq128": {
+        "p50": 234.15,
+        "p95": 248.55,
+        "p99": 249.8
+      },
+      "bs1": {
+        "p50": 61.36,
+        "p95": 69.86,
+        "p99": 76.41
+      },
+      "bs8_seq32": {
+        "p50": 468.46,
+        "p95": 539.76,
+        "p99": 548.5
+      },
+      "bs8_seq128": {
+        "p50": 1941.49,
+        "p95": 2090.75,
+        "p99": 2263.31
+      },
+      "bs8": {
+        "p50": 468.46,
+        "p95": 539.76,
+        "p99": 548.5
+      },
+      "bs32_seq32": {
+        "p50": 1947.5,
+        "p95": 4797.53,
+        "p99": 47260.32
+      },
+      "bs32_seq128": {
+        "p50": 7190.2,
+        "p95": 7660.38,
+        "p99": 7801.33
+      },
+      "bs32": {
+        "p50": 1947.5,
+        "p95": 4797.53,
+        "p99": 47260.32
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 16.31,
+      "bs1_seq128": 4.26,
+      "bs1": 16.31,
+      "bs8_seq32": 16.83,
+      "bs8_seq128": 4.09,
+      "bs8": 16.83,
+      "bs32_seq32": 7.11,
+      "bs32_seq128": 4.41,
+      "bs32": 7.11
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "teacher_bert_onnx_int8",
+    "display_name": "BERT-base Teacher (ONNX INT8)",
+    "family": "BERT-base",
+    "precision": "INT8",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.01,
+    "macro_f1": 0.00026,
+    "size_mb": 173.16,
+    "peak_mem_mb": 458.45,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 37.86,
+        "p95": 39.75,
+        "p99": 40.9
+      },
+      "bs1_seq128": {
+        "p50": 139.38,
+        "p95": 148.97,
+        "p99": 149.67
+      },
+      "bs1": {
+        "p50": 37.86,
+        "p95": 39.75,
+        "p99": 40.9
+      },
+      "bs8_seq32": {
+        "p50": 263.71,
+        "p95": 286.57,
+        "p99": 286.8
+      },
+      "bs8_seq128": {
+        "p50": 1189.08,
+        "p95": 1249.53,
+        "p99": 1258.76
+      },
+      "bs8": {
+        "p50": 263.71,
+        "p95": 286.57,
+        "p99": 286.8
+      },
+      "bs32_seq32": {
+        "p50": 1100.3,
+        "p95": 1127.36,
+        "p99": 1129.18
+      },
+      "bs32_seq128": {
+        "p50": 4654.22,
+        "p95": 6821.45,
+        "p99": 211316.24
+      },
+      "bs32": {
+        "p50": 1100.3,
+        "p95": 1127.36,
+        "p99": 1129.18
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 27.21,
+      "bs1_seq128": 7.16,
+      "bs1": 27.21,
+      "bs8_seq32": 30.09,
+      "bs8_seq128": 6.7,
+      "bs8": 30.09,
+      "bs32_seq32": 29.23,
+      "bs32_seq128": 2.04,
+      "bs32": 29.23
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "baseline_distilbert_pytorch_fp32",
+    "display_name": "DistilBERT Baseline (PyTorch FP32)",
+    "family": "DistilBERT",
+    "precision": "FP32",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.06,
+    "macro_f1": 0.02307,
+    "size_mb": 255.65,
+    "peak_mem_mb": 533.32,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 71.41,
+        "p95": 76.83,
+        "p99": 77.65
+      },
+      "bs1_seq128": {
+        "p50": 162.38,
+        "p95": 184.36,
+        "p99": 185.55
+      },
+      "bs1": {
+        "p50": 71.41,
+        "p95": 76.83,
+        "p99": 77.65
+      },
+      "bs8_seq32": {
+        "p50": 263.18,
+        "p95": 295.66,
+        "p99": 304.48
+      },
+      "bs8_seq128": {
+        "p50": 969.34,
+        "p95": 1021.79,
+        "p99": 1047.89
+      },
+      "bs8": {
+        "p50": 263.18,
+        "p95": 295.66,
+        "p99": 304.48
+      },
+      "bs32_seq32": {
+        "p50": 959.51,
+        "p95": 1009.82,
+        "p99": 1189.32
+      },
+      "bs32_seq128": {
+        "p50": 3775.13,
+        "p95": 3929.72,
+        "p99": 3952.88
+      },
+      "bs32": {
+        "p50": 959.51,
+        "p95": 1009.82,
+        "p99": 1189.32
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 14.29,
+      "bs1_seq128": 6.23,
+      "bs1": 14.29,
+      "bs8_seq32": 29.88,
+      "bs8_seq128": 8.24,
+      "bs8": 29.88,
+      "bs32_seq32": 32.98,
+      "bs32_seq128": 8.44,
+      "bs32": 32.98
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "baseline_distilbert_onnx_fp32",
+    "display_name": "DistilBERT Baseline (ONNX FP32)",
+    "family": "DistilBERT",
+    "precision": "FP32",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.06,
+    "macro_f1": 0.02307,
+    "size_mb": 255.7,
+    "peak_mem_mb": 500.24,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 30.23,
+        "p95": 32.33,
+        "p99": 32.47
+      },
+      "bs1_seq128": {
+        "p50": 121.49,
+        "p95": 124.03,
+        "p99": 125.63
+      },
+      "bs1": {
+        "p50": 30.23,
+        "p95": 32.33,
+        "p99": 32.47
+      },
+      "bs8_seq32": {
+        "p50": 233.67,
+        "p95": 265.05,
+        "p99": 271.02
+      },
+      "bs8_seq128": {
+        "p50": 917.06,
+        "p95": 953.9,
+        "p99": 954.85
+      },
+      "bs8": {
+        "p50": 233.67,
+        "p95": 265.05,
+        "p99": 271.02
+      },
+      "bs32_seq32": {
+        "p50": 938.39,
+        "p95": 968.45,
+        "p99": 983.46
+      },
+      "bs32_seq128": {
+        "p50": 3710.14,
+        "p95": 7926.69,
+        "p99": 308660.66
+      },
+      "bs32": {
+        "p50": 938.39,
+        "p95": 968.45,
+        "p99": 983.46
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 33.54,
+      "bs1_seq128": 8.24,
+      "bs1": 33.54,
+      "bs8_seq32": 34.01,
+      "bs8_seq128": 8.81,
+      "bs8": 34.01,
+      "bs32_seq32": 34.15,
+      "bs32_seq128": 1.59,
+      "bs32": 34.15
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "baseline_distilbert_onnx_int8",
+    "display_name": "DistilBERT Baseline (ONNX INT8)",
+    "family": "DistilBERT",
+    "precision": "INT8",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.02,
+    "macro_f1": 0.00297,
+    "size_mb": 132.36,
+    "peak_mem_mb": 416.29,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 14.34,
+        "p95": 17.98,
+        "p99": 18.25
+      },
+      "bs1_seq128": {
+        "p50": 65.22,
+        "p95": 74.72,
+        "p99": 75.0
+      },
+      "bs1": {
+        "p50": 14.34,
+        "p95": 17.98,
+        "p99": 18.25
+      },
+      "bs8_seq32": {
+        "p50": 134.9,
+        "p95": 163.45,
+        "p99": 174.43
+      },
+      "bs8_seq128": {
+        "p50": 562.16,
+        "p95": 650.77,
+        "p99": 659.28
+      },
+      "bs8": {
+        "p50": 134.9,
+        "p95": 163.45,
+        "p99": 174.43
+      },
+      "bs32_seq32": {
+        "p50": 613.74,
+        "p95": 759.87,
+        "p99": 845.12
+      },
+      "bs32_seq128": {
+        "p50": 2512.21,
+        "p95": 2939.48,
+        "p99": 3003.74
+      },
+      "bs32": {
+        "p50": 613.74,
+        "p95": 759.87,
+        "p99": 845.12
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 67.62,
+      "bs1_seq128": 15.59,
+      "bs1": 67.62,
+      "bs8_seq32": 58.63,
+      "bs8_seq128": 13.81,
+      "bs8": 58.63,
+      "bs32_seq32": 50.46,
+      "bs32_seq128": 12.39,
+      "bs32": 50.46
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "student_distilled_pytorch_fp32",
+    "display_name": "Distilled Student 4L (PyTorch FP32)",
+    "family": "Student-4L",
+    "precision": "FP32",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.06,
+    "macro_f1": 0.02114,
+    "size_mb": 201.57,
+    "peak_mem_mb": 478.23,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 81.58,
+        "p95": 202.86,
+        "p99": 285.87
+      },
+      "bs1_seq128": {
+        "p50": 140.01,
+        "p95": 174.2,
+        "p99": 205.5
+      },
+      "bs1": {
+        "p50": 81.58,
+        "p95": 202.86,
+        "p99": 285.87
+      },
+      "bs8_seq32": {
+        "p50": 288.54,
+        "p95": 374.57,
+        "p99": 396.94
+      },
+      "bs8_seq128": {
+        "p50": 976.83,
+        "p95": 1542.39,
+        "p99": 1677.1
+      },
+      "bs8": {
+        "p50": 288.54,
+        "p95": 374.57,
+        "p99": 396.94
+      },
+      "bs32_seq32": {
+        "p50": 706.76,
+        "p95": 805.25,
+        "p99": 819.81
+      },
+      "bs32_seq128": {
+        "p50": 2711.15,
+        "p95": 3886.73,
+        "p99": 4111.58
+      },
+      "bs32": {
+        "p50": 706.76,
+        "p95": 805.25,
+        "p99": 819.81
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 10.06,
+      "bs1_seq128": 6.87,
+      "bs1": 10.06,
+      "bs8_seq32": 27.59,
+      "bs8_seq128": 7.6,
+      "bs8": 27.59,
+      "bs32_seq32": 44.58,
+      "bs32_seq128": 10.96,
+      "bs32": 44.58
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "student_distilled_onnx_fp32",
+    "display_name": "Distilled Student 4L (ONNX FP32)",
+    "family": "Student-4L",
+    "precision": "FP32",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.06,
+    "macro_f1": 0.02114,
+    "size_mb": 201.61,
+    "peak_mem_mb": 506.71,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 28.06,
+        "p95": 34.49,
+        "p99": 40.59
+      },
+      "bs1_seq128": {
+        "p50": 81.02,
+        "p95": 105.2,
+        "p99": 107.49
+      },
+      "bs1": {
+        "p50": 28.06,
+        "p95": 34.49,
+        "p99": 40.59
+      },
+      "bs8_seq32": {
+        "p50": 166.84,
+        "p95": 197.22,
+        "p99": 201.56
+      },
+      "bs8_seq128": {
+        "p50": 790.94,
+        "p95": 1028.4,
+        "p99": 1046.21
+      },
+      "bs8": {
+        "p50": 166.84,
+        "p95": 197.22,
+        "p99": 201.56
+      },
+      "bs32_seq32": {
+        "p50": 524.42,
+        "p95": 785.59,
+        "p99": 792.62
+      },
+      "bs32_seq128": {
+        "p50": 2430.93,
+        "p95": 3124.54,
+        "p99": 3182.9
+      },
+      "bs32": {
+        "p50": 524.42,
+        "p95": 785.59,
+        "p99": 792.62
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 35.63,
+      "bs1_seq128": 12.19,
+      "bs1": 35.63,
+      "bs8_seq32": 48.8,
+      "bs8_seq128": 9.59,
+      "bs8": 48.8,
+      "bs32_seq32": 56.83,
+      "bs32_seq128": 12.82,
+      "bs32": 56.83
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  },
+  {
+    "name": "student_distilled_onnx_int8",
+    "display_name": "Distilled Student 4L (ONNX INT8)",
+    "family": "Student-4L",
+    "precision": "INT8",
+    "task": "intent_classification",
+    "dataset": "banking77",
+    "accuracy": 0.04,
+    "macro_f1": 0.01346,
+    "size_mb": 118.77,
+    "peak_mem_mb": 399.39,
+    "latency_ms": {
+      "bs1_seq32": {
+        "p50": 11.1,
+        "p95": 14.13,
+        "p99": 14.56
+      },
+      "bs1_seq128": {
+        "p50": 37.86,
+        "p95": 45.73,
+        "p99": 46.7
+      },
+      "bs1": {
+        "p50": 11.1,
+        "p95": 14.13,
+        "p99": 14.56
+      },
+      "bs8_seq32": {
+        "p50": 74.57,
+        "p95": 86.46,
+        "p99": 94.2
+      },
+      "bs8_seq128": {
+        "p50": 374.61,
+        "p95": 477.45,
+        "p99": 488.63
+      },
+      "bs8": {
+        "p50": 74.57,
+        "p95": 86.46,
+        "p99": 94.2
+      },
+      "bs32_seq32": {
+        "p50": 340.08,
+        "p95": 434.61,
+        "p99": 463.17
+      },
+      "bs32_seq128": {
+        "p50": 1419.7,
+        "p95": 1637.97,
+        "p99": 1850.23
+      },
+      "bs32": {
+        "p50": 340.08,
+        "p95": 434.61,
+        "p99": 463.17
+      }
+    },
+    "throughput": {
+      "bs1_seq32": 88.04,
+      "bs1_seq128": 25.83,
+      "bs1": 88.04,
+      "bs8_seq32": 103.64,
+      "bs8_seq128": 20.54,
+      "bs8": 103.64,
+      "bs32_seq32": 89.85,
+      "bs32_seq128": 21.96,
+      "bs32": 89.85
+    },
+    "hardware": {
+      "cpu": "AMD Ryzen 3 7320U with Radeon Graphics",
+      "platform": "Windows-10-10.0.26300-SP0",
+      "architecture": "AMD64",
+      "physical_cores": 4,
+      "logical_cores": 8,
+      "threads": 4,
+      "ram_gb": 5.74,
+      "python_version": "3.11.15"
+    }
+  }
+]
