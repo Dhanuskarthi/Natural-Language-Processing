@@ -1,0 +1,41 @@
+id,query,preset,expected_top1,actual_top1,top1_match,top3_match,actual_top3
+1,"classify banking queries, CPU only, under 20 ms",fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+2,real-time banking chatbot under 18ms latency on cpu,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+3,financial customer intent classifier with latency < 15ms,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+4,fastest bank query classification under 20 milliseconds,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+5,interactive teller assistant sub-16ms on standard cpu,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+6,intent detection for voice banking under 20ms,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+7,high throughput query classification under 18ms latency,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+8,cpu banking intent router with SLA < 19 ms,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+9,mobile banking backend query filter under 15 milliseconds,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+10,fast financial intent classifier on cpu below 20ms,fastest,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+11,mobile edge banking assistant with < 120mb memory,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+12,deploy on mobile phone client with memory under 125 MB,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+13,embedded device banking intent recognition max 135mb,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+14,raspberry pi banking kiosk with size < 130 megabytes,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+15,on-device customer support model under 120 mb,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+16,offline mobile banking app with memory < 140mb,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+17,iot edge device banking query router max 125mb memory,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+18,smart atm interface with memory under 140 megabytes,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+19,edge phone banking assistant with max 130mb footprint,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+20,embedded pos terminal intent parser size below 120mb,edge,student_distilled_onnx_int8,student_distilled_onnx_int8,True,True,student_distilled_onnx_int8
+21,balanced banking intent classifier under 40ms latency,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+22,customer service ticket routing with latency < 35ms,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+23,banking intent detection with moderate SLA under 50ms on cpu,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+24,classify financial transactions with latency < 45 milliseconds,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+25,cloud microservice for banking queries with SLA under 40ms,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+26,general customer intent routing on server cpu under 38ms,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+27,balanced accuracy and speed for banking queries under 45ms,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+28,production banking bot with latency below 42ms on cpu,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+29,financial dialogue understanding with under 36ms response time,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+30,server cpu query routing under 50ms,balanced,student_distilled_onnx_fp32,student_distilled_onnx_int8,False,True,"student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+31,bank chatbot on server CPU with max accuracy,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+32,accurate banking intent classification on server cpu,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+33,highest quality customer intent recognition on cpu server,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+34,maximum precision banking query classification no strict latency,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+35,accurate dispute query categorization on cpu server,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+36,best accuracy banking support bot on enterprise cpu,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+37,top accuracy classification for wire transfer queries,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+38,high quality financial intent classification on cpu with max 250mb,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, student_distilled_onnx_int8, student_distilled_pytorch_fp32"
+39,accurate customer intent detection for online banking portal,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+40,enterprise banking query classification with best accuracy,max_accuracy,student_distilled_onnx_fp32,student_distilled_onnx_fp32,True,True,"student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"

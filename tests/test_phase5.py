@@ -24,7 +24,13 @@ def test_task_classifier_accuracy():
 def test_constraint_parser_suite():
     """Validates that constraint parser passes at least 30 distinct phrases."""
     assert len(CONSTRAINT_TEST_PHRASES) >= 30
-    passed = test_phrase_suite()
+    passed = 0
+    for phrase, expected in CONSTRAINT_TEST_PHRASES:
+        res = parse_constraints(phrase)
+        if (res["hardware"] == expected["hardware"] and
+            res["max_latency_ms"] == expected["max_latency_ms"] and
+            res["max_memory_mb"] == expected["max_memory_mb"]):
+            passed += 1
     assert passed >= 30
 
 

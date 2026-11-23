@@ -30,6 +30,9 @@ data/banking77_cache/
 
 # Temporary and log files
 *.log
+*.db
+*.sqlite
+*.sqlite3
 .DS_Store
 Thumbs.db
 results/temp/

@@ -1,0 +1,411 @@
+{
+  "summary": {
+    "total_scenarios": 40,
+    "top1_correct": 30,
+    "top1_agreement": 0.75,
+    "top3_correct": 40,
+    "top3_agreement": 1.0
+  },
+  "scenarios": [
+    {
+      "id": 1,
+      "query": "classify banking queries, CPU only, under 20 ms",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 2,
+      "query": "real-time banking chatbot under 18ms latency on cpu",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 3,
+      "query": "financial customer intent classifier with latency < 15ms",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 4,
+      "query": "fastest bank query classification under 20 milliseconds",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 5,
+      "query": "interactive teller assistant sub-16ms on standard cpu",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 6,
+      "query": "intent detection for voice banking under 20ms",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 7,
+      "query": "high throughput query classification under 18ms latency",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 8,
+      "query": "cpu banking intent router with SLA < 19 ms",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 9,
+      "query": "mobile banking backend query filter under 15 milliseconds",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 10,
+      "query": "fast financial intent classifier on cpu below 20ms",
+      "preset": "fastest",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 11,
+      "query": "mobile edge banking assistant with < 120mb memory",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 12,
+      "query": "deploy on mobile phone client with memory under 125 MB",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 13,
+      "query": "embedded device banking intent recognition max 135mb",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 14,
+      "query": "raspberry pi banking kiosk with size < 130 megabytes",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 15,
+      "query": "on-device customer support model under 120 mb",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 16,
+      "query": "offline mobile banking app with memory < 140mb",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 17,
+      "query": "iot edge device banking query router max 125mb memory",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 18,
+      "query": "smart atm interface with memory under 140 megabytes",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8"
+    },
+    {
+      "id": 19,
+      "query": "edge phone banking assistant with max 130mb footprint",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 20,
+      "query": "embedded pos terminal intent parser size below 120mb",
+      "preset": "edge",
+      "expected_top1": "student_distilled_onnx_int8",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8"
+    },
+    {
+      "id": 21,
+      "query": "balanced banking intent classifier under 40ms latency",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 22,
+      "query": "customer service ticket routing with latency < 35ms",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 23,
+      "query": "banking intent detection with moderate SLA under 50ms on cpu",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 24,
+      "query": "classify financial transactions with latency < 45 milliseconds",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 25,
+      "query": "cloud microservice for banking queries with SLA under 40ms",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 26,
+      "query": "general customer intent routing on server cpu under 38ms",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 27,
+      "query": "balanced accuracy and speed for banking queries under 45ms",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 28,
+      "query": "production banking bot with latency below 42ms on cpu",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 29,
+      "query": "financial dialogue understanding with under 36ms response time",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 30,
+      "query": "server cpu query routing under 50ms",
+      "preset": "balanced",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_int8",
+      "top1_match": false,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_int8, baseline_distilbert_onnx_int8, student_distilled_onnx_fp32"
+    },
+    {
+      "id": 31,
+      "query": "bank chatbot on server CPU with max accuracy",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 32,
+      "query": "accurate banking intent classification on server cpu",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 33,
+      "query": "highest quality customer intent recognition on cpu server",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 34,
+      "query": "maximum precision banking query classification no strict latency",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 35,
+      "query": "accurate dispute query categorization on cpu server",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 36,
+      "query": "best accuracy banking support bot on enterprise cpu",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 37,
+      "query": "top accuracy classification for wire transfer queries",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 38,
+      "query": "high quality financial intent classification on cpu with max 250mb",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, student_distilled_onnx_int8, student_distilled_pytorch_fp32"
+    },
+    {
+      "id": 39,
+      "query": "accurate customer intent detection for online banking portal",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    },
+    {
+      "id": 40,
+      "query": "enterprise banking query classification with best accuracy",
+      "preset": "max_accuracy",
+      "expected_top1": "student_distilled_onnx_fp32",
+      "actual_top1": "student_distilled_onnx_fp32",
+      "top1_match": true,
+      "top3_match": true,
+      "actual_top3": "student_distilled_onnx_fp32, baseline_distilbert_onnx_fp32, baseline_distilbert_pytorch_fp32"
+    }
+  ]
+}

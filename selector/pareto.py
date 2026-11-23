@@ -38,6 +38,10 @@ def filter_pareto_frontier(candidates: List[Dict[str, Any]]) -> List[Dict[str, A
     return frontier
 
 
+# Alias for compatibility across plotting and selector
+compute_pareto_frontier = filter_pareto_frontier
+
+
 def tag_pareto_status(candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Adds 'is_pareto': True/False attribute to each candidate in the list."""
     frontier = filter_pareto_frontier(candidates)
