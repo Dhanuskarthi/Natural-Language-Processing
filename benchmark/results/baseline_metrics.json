@@ -1,0 +1,17 @@
+{
+  "model_type": "baseline",
+  "base_model": "distilbert-base-uncased",
+  "checkpoint_dir": "models/baseline_distilbert",
+  "precision": "FP32",
+  "fast_mode": true,
+  "device": "cpu",
+  "epochs": 1,
+  "batch_size": 16,
+  "learning_rate": 5e-05,
+  "train_time_sec": 230.15,
+  "test_samples": 100,
+  "accuracy": 0.06,
+  "macro_f1": 0.02307,
+  "test_loss": 4.3173,
+  "timestamp": "2026-11-23 17:43:50"
+}

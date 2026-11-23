@@ -1,0 +1,17 @@
+{
+  "model_type": "teacher",
+  "base_model": "bert-base-uncased",
+  "checkpoint_dir": "models/teacher_bert",
+  "precision": "FP32",
+  "fast_mode": true,
+  "device": "cpu",
+  "epochs": 1,
+  "batch_size": 16,
+  "learning_rate": 5e-05,
+  "train_time_sec": 596.33,
+  "test_samples": 100,
+  "accuracy": 0.01,
+  "macro_f1": 0.00026,
+  "test_loss": 4.3587,
+  "timestamp": "2026-11-23 17:38:06"
+}
