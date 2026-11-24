@@ -13,8 +13,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import onnxruntime as ort
-import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 # Add parent directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -91,6 +89,18 @@ def run_live_inference(
             "confidence": None,
             "latency_ms": p50_lat,
             "is_live": False
+        }
+
+    # Lazy import transformers only when live inference on local models is actually required
+    try:
+        from transformers import AutoTokenizer
+    except ImportError:
+        return {
+            "intent_id": None,
+            "confidence": None,
+            "latency_ms": p50_lat,
+            "is_live": False,
+            "error": "The transformers library is not installed in this environment. Run 'pip install -r requirements-train.txt' to enable live tokenizer."
         }
 
     tok_dir = os.path.join(models_dir, "teacher_bert")

@@ -73,15 +73,30 @@ python -m venv .venv
 .venv\Scripts\activate
 # On Linux/macOS:
 source .venv/bin/activate
+```
 
-# Install dependencies
+#### Choose Dependency Profile:
+
+**Option A: Lightweight App & Cloud Deployment (Streamlit Community Cloud)**
+Installs only UI and inference runtime libraries (~150MB, no PyTorch needed):
+```bash
 pip install -r requirements.txt
+```
+
+**Option B: Full Training, Distillation & Benchmarking Pipeline**
+Installs PyTorch, Hugging Face, ONNX export, and testing suites (~2.5GB):
+```bash
+pip install -r requirements-train.txt
 ```
 
 ### 2. Verification
 Check that key runtimes are ready:
 ```bash
-python -c "import torch, transformers, onnxruntime; print('Environment OK!')"
+# For lightweight app mode:
+python -c "import streamlit, onnxruntime, sklearn; print('App Environment OK!')"
+
+# For full training mode:
+python -c "import torch, transformers, onnxruntime; print('Training Environment OK!')"
 ```
 
 ### 3. CPU Fast Testing Mode
