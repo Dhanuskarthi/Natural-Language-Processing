@@ -59,63 +59,68 @@ def load_onnx_session(onnx_path: str):
     return ort.InferenceSession(onnx_path, opts, providers=["CPUExecutionProvider"])
 
 
-def run_live_inference(model_entry: Dict[str, Any], text: str) -> Dict[str, Any]:
-    """Executes live single-utterance inference on user text."""
-    tok_dir = "models/teacher_bert"
-    if "distilbert" in model_entry["name"]:
-        tok_dir = "models/baseline_distilbert"
-    elif "student" in model_entry["name"]:
-        tok_dir = "models/student_distilled"
+def run_live_inference(
+    model_entry: Dict[str, Any],
+    text: str,
+    models_dir: str = "models"
+) -> Dict[str, Any]:
+    """Executes live single-utterance inference on user text if local models exist."""
+    onnx_file = None
+    name = model_entry.get("name", "")
+
+    if "fp32" in name:
+        if "teacher" in name:
+            onnx_file = os.path.join(models_dir, "onnx", "teacher_bert_fp32.onnx")
+        elif "baseline" in name:
+            onnx_file = os.path.join(models_dir, "onnx", "baseline_distilbert_fp32.onnx")
+        elif "student" in name:
+            onnx_file = os.path.join(models_dir, "onnx", "student_distilled_fp32.onnx")
+    elif "int8" in name:
+        if "teacher" in name:
+            onnx_file = os.path.join(models_dir, "onnx", "teacher_bert_int8.onnx")
+        elif "baseline" in name:
+            onnx_file = os.path.join(models_dir, "onnx", "baseline_distilbert_int8.onnx")
+        elif "student" in name:
+            onnx_file = os.path.join(models_dir, "onnx", "student_distilled_int8.onnx")
+
+    # If ONNX file is not available locally (e.g., on cloud demo), return honest fallback without fake predictions
+    if not (onnx_file and os.path.exists(onnx_file)):
+        p50_lat = model_entry.get("latency_ms", {}).get("bs1", {}).get("p50", None)
+        return {
+            "intent_id": None,
+            "confidence": None,
+            "latency_ms": p50_lat,
+            "is_live": False
+        }
+
+    tok_dir = os.path.join(models_dir, "teacher_bert")
+    if "distilbert" in name:
+        tok_dir = os.path.join(models_dir, "baseline_distilbert")
+    elif "student" in name:
+        tok_dir = os.path.join(models_dir, "student_distilled")
 
     # Load local tokenizer if available, otherwise fallback to standard base model
     if os.path.exists(tok_dir):
         tokenizer = AutoTokenizer.from_pretrained(tok_dir)
     else:
-        base_tok = "distilbert-base-uncased" if "distilbert" in model_entry["name"] else "bert-base-uncased"
+        base_tok = "distilbert-base-uncased" if "distilbert" in name else "bert-base-uncased"
         tokenizer = AutoTokenizer.from_pretrained(base_tok)
 
     inputs = tokenizer(text, padding=True, truncation=True, max_length=64, return_tensors="np")
-
-    onnx_file = None
-    if "fp32" in model_entry["name"]:
-        if "teacher" in model_entry["name"]:
-            onnx_file = "models/onnx/teacher_bert_fp32.onnx"
-        elif "baseline" in model_entry["name"]:
-            onnx_file = "models/onnx/baseline_distilbert_fp32.onnx"
-        else:
-            onnx_file = "models/onnx/student_distilled_fp32.onnx"
-    else:
-        if "teacher" in model_entry["name"]:
-            onnx_file = "models/onnx/teacher_bert_int8.onnx"
-        elif "baseline" in model_entry["name"]:
-            onnx_file = "models/onnx/baseline_distilbert_int8.onnx"
-        else:
-            onnx_file = "models/onnx/student_distilled_int8.onnx"
-
-    if onnx_file and os.path.exists(onnx_file):
-        sess = load_onnx_session(onnx_file)
-        ort_inputs = {"input_ids": inputs["input_ids"], "attention_mask": inputs["attention_mask"]}
-        t0 = time.perf_counter()
-        logits = sess.run(["logits"], ort_inputs)[0]
-        lat_ms = (time.perf_counter() - t0) * 1000.0
-        pred_idx = int(np.argmax(logits, axis=-1)[0])
-        exp_logits = np.exp(logits[0] - np.max(logits[0]))
-        confidence = float(exp_logits[pred_idx] / np.sum(exp_logits))
-        return {
-            "intent_id": pred_idx,
-            "confidence": confidence,
-            "latency_ms": round(lat_ms, 2),
-            "is_live": True
-        }
-    else:
-        # Benchmark-backed fallback for cloud environments where large binary model weights are gitignored
-        p50_lat = model_entry.get("latency_ms", {}).get("bs1", {}).get("p50", 14.1)
-        return {
-            "intent_id": 42,
-            "confidence": 0.92,
-            "latency_ms": p50_lat,
-            "is_live": False
-        }
+    sess = load_onnx_session(onnx_file)
+    ort_inputs = {"input_ids": inputs["input_ids"], "attention_mask": inputs["attention_mask"]}
+    t0 = time.perf_counter()
+    logits = sess.run(["logits"], ort_inputs)[0]
+    lat_ms = (time.perf_counter() - t0) * 1000.0
+    pred_idx = int(np.argmax(logits, axis=-1)[0])
+    exp_logits = np.exp(logits[0] - np.max(logits[0]))
+    confidence = float(exp_logits[pred_idx] / np.sum(exp_logits))
+    return {
+        "intent_id": pred_idx,
+        "confidence": confidence,
+        "latency_ms": round(lat_ms, 2),
+        "is_live": True
+    }
 
 
 # ==============================================================================
@@ -265,12 +270,14 @@ with tab_try:
 
     if st.button("🚀 Run Live Inference"):
         chosen_model = model_choices[selected_name]
-        with st.spinner("Executing model on CPU..."):
+        with st.spinner("Processing..."):
             res = run_live_inference(chosen_model, test_input)
             if res.get("is_live"):
-                st.success(f"⚡ **Live Local CPU Execution** | **Predicted Intent ID:** `{res['intent_id']}` | **Confidence:** `{res['confidence']*100:.1f}%` | **Latency:** `{res['latency_ms']} ms`")
+                st.success(f"⚡ **Live Local CPU Execution** | **Predicted Intent ID:** `{res['intent_id']}` | **Confidence:** `{res['confidence']*100:.1f}%` | **Execution Latency:** `{res['latency_ms']} ms`")
             else:
-                st.info(f"📊 **Benchmark Mode (Cloud Deployment)** | **Predicted Intent ID:** `{res['intent_id']}` | **Confidence:** `{res['confidence']*100:.1f}%` | **Measured p50 Latency:** `{res['latency_ms']} ms` *(Local ONNX binaries excluded from Git)*")
+                st.warning("⚠️ Live prediction is not available in this cloud demo because model files are not included. Run the app locally after training to try it. Benchmark numbers below are real measurements.")
+                if res.get("latency_ms") is not None:
+                    st.info(f"📊 **Measured Benchmark Latency (p50, batch size 1):** `{res['latency_ms']} ms`")
 
 # ==============================================================================
 # TAB 4: USER FEEDBACK

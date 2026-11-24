@@ -46,3 +46,18 @@ def test_streamlit_app_compilation():
     app_path = "app/streamlit_app.py"
     assert os.path.exists(app_path)
     py_compile.compile(app_path, doraise=True)
+
+
+def test_run_live_inference_honest_fallback():
+    """Validates that run_live_inference does not fabricate intent or confidence when ONNX files are missing."""
+    from app.streamlit_app import run_live_inference
+    missing_model = {
+        "name": "teacher_bert_onnx_fp32",
+        "latency_ms": {"bs1": {"p50": 162.82}}
+    }
+    # Pass non-existent directory to simulate cloud deployment where weights are gitignored
+    result = run_live_inference(missing_model, "Sample test query", models_dir="non_existent_cloud_models")
+    assert result["is_live"] is False
+    assert result["intent_id"] is None
+    assert result["confidence"] is None
+    assert result["latency_ms"] == 162.82
