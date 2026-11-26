@@ -1,6 +1,6 @@
 # CompressRoute: End-to-End Model Compression, Benchmarking, and Constraint-Aware NLP Model Routing
 
-**Author:** Antigravity (Google DeepMind) & Dhanuskarthi  
+**Author:** Dhanuskarthi & Kishore 
 **Target Domain:** Financial NLP & Intent Classification (Banking77)  
 **System Hardware:** AMD Ryzen 3 7320U with Radeon Graphics (4 Physical Cores, 8 Logical Cores, 4 Pinned Threads, 15.2 GB RAM, Windows 11)  
 **Date:** November 2026  
