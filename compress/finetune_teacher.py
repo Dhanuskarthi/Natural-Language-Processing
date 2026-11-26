@@ -157,9 +157,9 @@ def train_single_model(
         learning_rate = 5e-5
     else:
         train_cfg = config.get("training", {})
-        num_epochs = train_cfg.get("num_epochs", 3)
+        num_epochs = train_cfg.get("num_epochs", 6)
         batch_size = train_cfg.get("batch_size", 32)
-        learning_rate = float(train_cfg.get("learning_rate", 2e-5))
+        learning_rate = float(train_cfg.get("learning_rate", 3.5e-5))
 
     max_length = config.get("dataset", {}).get("max_seq_length", 64)
 

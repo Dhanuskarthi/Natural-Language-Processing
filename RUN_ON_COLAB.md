@@ -34,7 +34,7 @@ This guide walks you through executing the full training, distillation, ONNX exp
 2. The notebook will automatically:
    - Check GPU status (`nvidia-smi`).
    - Clone the repository and install `requirements-train.txt`.
-   - Train the Teacher (`bert-base-uncased`) and Baseline (`distilbert-base-uncased`) for 3 epochs on the full Banking77 dataset.
+   - Train the Teacher (`bert-base-uncased`) and Baseline (`distilbert-base-uncased`) for 6 epochs on the full Banking77 dataset (lr=3.5e-5).
    - Run the Knowledge Distillation ablation study and save the top 4-layer student model.
    - Export all models to ONNX FP32 and quantize to INT8.
    - Evaluate all 9 variants on the full 3,080-sample test set.

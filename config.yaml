@@ -25,9 +25,9 @@ models:
     num_hidden_layers: 4
 
 training:
-  learning_rate: 2.0e-5
+  learning_rate: 3.5e-5
   batch_size: 32
-  num_epochs: 3
+  num_epochs: 6
   weight_decay: 0.01
   warmup_ratio: 0.1
   fast:
@@ -38,6 +38,8 @@ training:
 distillation:
   temperature: 3.0
   alpha: 0.5
+  learning_rate: 3.5e-5
+  num_epochs: 4
 
 quantization:
   calibration_samples: 200

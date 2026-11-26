@@ -229,9 +229,10 @@ def run_distillation(fast: bool = False, run_ablation: bool = True) -> None:
         batch_size = 16
         lr = 6e-5
     else:
-        epochs = 3
-        batch_size = 32
-        lr = 3e-5
+        distill_cfg = config.get("distillation", {})
+        epochs = distill_cfg.get("num_epochs", 4)
+        batch_size = distill_cfg.get("batch_size", 32)
+        lr = float(distill_cfg.get("learning_rate", 3.5e-5))
 
     # Define ablation configurations
     # 1. No Distillation (alpha = 1.0)
